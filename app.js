@@ -31,3 +31,26 @@ function playRound(playerSelection, computerSelection) {
 function play() {
     console.log(playRound(window.prompt("Rock, paper, or scissors..."), computerPlay()))
 }
+
+const buttons = Array.from(document.querySelectorAll('.icon'));
+const transformed = Array.from(document.querySelectorAll('.selected'));
+
+function transition(e) {
+    const icon = document.getElementById(e.id)
+
+}
+
+function removeTransition(e) {
+    e.target.classList.remove('selected');
+}
+
+buttons.forEach(icon => icon.addEventListener('mousedown', function(e) {
+    transformed.forEach(selected => selected.classList.remove('selected'));
+    console.log(playRound(icon.id, computerPlay()));
+    icon.classList.add('selected');
+}))
+
+buttons.forEach(icon => icon.addEventListener('mouseup', function(e) {
+    icon.classList.remove('selected');
+}))
+

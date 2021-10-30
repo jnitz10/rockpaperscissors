@@ -1,0 +1,24 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+li {
+    display: inline-block;
+    padding: 50px;
+}
+.icon {
+    width: 200px;
+    height: 200px;
+    transition: all .07s ease;
+    transition-duration: 0.25s;
+}
+
+.buttons {
+    list-style: none;
+}
+
+.selected {
+    transform: scale(1.5);
+}
