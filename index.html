@@ -8,13 +8,23 @@
     <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-   <div class="header"><h1>Rock Paper Scissors</h1></div> 
+   <div class="header"><h1>Rock Paper Scissors</h1><h3 id="subhead">First to Five Wins</h3>
+</div> 
    <ul class="buttons">
-       <li><div class="icon" id="rock"><img src="img/rock.svg"></div></li>
-       <li><div class="icon" id="paper"><img src="img/paper.svg"></div></li>
-       <li><div class="icon" id="scissors"><img src="img/scissors.svg"></div></li>
+       <li class="inline"><div class="icon" id="rock"><img src="img/rock.svg"></div></li>
+       <li class="inline"><div class="icon" id="paper"><img src="img/paper.svg"></div></li>
+       <li class="inline"><div class="icon" id="scissors"><img src="img/scissors.svg"></div></li>
    </ul>
-   <div class="scoreboard"><h2>First to Five Wins</h2></div>
+   <div class="scoreboard">
+       <ul>
+           <li>You</li>
+           <li id="playerScore"></li>
+       </ul>
+       <ul>
+           <li>Computer</li>
+           <li id="computerScore"></li>
+       </ul>
+   </div>
 
     <script src="app.js"></script>
 </body>

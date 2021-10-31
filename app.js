@@ -1,6 +1,9 @@
 
 var choice = [ "rock", "paper", "scissors"];
 
+var playerWins = 0;
+var computerWins = 0;
+
 
 function computerPlay() {
     return choice[Math.floor(Math.random()*choice.length)]
@@ -20,17 +23,23 @@ function doesItWin(selection1, selection2) {
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection.toLowerCase() == computerSelection.toLowerCase()) {
-        return `The computer played ${computerSelection} It's a draw!`;
+        subhead.textContent = `The computer played ${computerSelection} It's a draw!`;
     } else if (doesItWin(playerSelection.toLowerCase(), computerSelection.toLowerCase())) {
-        return `The computer played ${computerSelection} You win!`
+        playerWins += 1;
+        playerScore.textContent = `${playerWins}`;
+        subhead.textContent = `The computer played ${computerSelection}. You win!`;
+        if (playerWins == 5) {
+            alert("Congrats! You win!");
+            playerWins = 0;
+            computerWins = 0;
+        }
     } else {
-        return `The computer played ${computerSelection} You lose!`
+        computerWins += 1;
+        computerScore.textContent = `${computerWins}`;
+        subhead.textContent = `The computer played ${computerSelection}. You lose!`;
     }
 }
 
-function play() {
-    console.log(playRound(window.prompt("Rock, paper, or scissors..."), computerPlay()))
-}
 
 const buttons = Array.from(document.querySelectorAll('.icon'));
 const transformed = Array.from(document.querySelectorAll('.selected'));
@@ -53,4 +62,12 @@ buttons.forEach(icon => icon.addEventListener('mousedown', function(e) {
 buttons.forEach(icon => icon.addEventListener('mouseup', function(e) {
     icon.classList.remove('selected');
 }))
+
+const playerScore = document.getElementById('playerScore');
+playerScore.textContent = `${playerWins}`;
+const computerScore = document.getElementById('computerScore');
+computerScore.textContent = `${computerWins}`;
+
+const subhead = document.getElementById('subhead');
+
 
